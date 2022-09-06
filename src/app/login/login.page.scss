@@ -1,0 +1,88 @@
+ion-content {
+    --background: linear-gradient(#4786ef, #f4f5f8);
+    position: relative;
+}
+ 
+input::placeholder {
+    color: black;
+    font-size: 1.2em;
+    font-style: italic;
+}  
+
+#contenedor {
+    display: flex;
+    margin-top: 5%;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-bottom: 5%;
+    box-shadow: 1px -2px 24px 15px rgba(158,0,255,0.81);
+    border-radius: 20px;
+    overflow: hidden;
+
+    grid-row: 1;
+    grid-column: span 3 / -1;
+    z-index: 2;
+}
+
+#contenedor_left{
+    background-color: white;
+    color:black;
+    width: 60%;
+}
+
+#contenedor_right{
+    background-color: black;
+    width: 40%;
+    height: 700px;
+}
+
+#contenedor_up{
+    background-color: blue;
+    height: 43%;
+}
+
+#contenedor_down{
+    height: 57%;
+    text-align: center;
+    display: flex; 
+    flex-direction: column;
+}
+
+#input_user{
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: white;
+    color:black;
+    border-radius: 10px;
+    padding-top:3%;
+    padding-bottom: 2%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+#input_pass{
+    margin-top: 10%;
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: white;
+    color:black;
+    border-radius: 10px;
+    padding-top:3%;
+    padding-bottom: 2%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+#boton{
+    height:100px;
+    width: 550px;
+    top: 600px;
+    left: 53.5%;
+    background-color: violet;
+    position: absolute;
+    z-index: 1;
+    border-radius: 10px;
+    text-align: center;
+    opacity: 0.8;
+
+}
