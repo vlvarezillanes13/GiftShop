@@ -3,18 +3,29 @@
     src: url(../../assets/fonts/Jellee-Roman.ttf);
 }
 
-input {
-    border-top-style: hidden;
-    border-right-style: hidden;
-    border-left-style: hidden;
-    border-bottom-style: hidden;
-    background-color: #eee;
-  }
-  
+
+ion-input{
+    --border-radius: 10px !important;
+    --padding-right: 10px;
+    --font-size: 0.9em;
+    --background: rgb(219,219,219) !important;
+    border-radius: 10px;
+    min-height: 100%;
+    min-width: 100%;
+    color:black;
+
+}
   .no-outline:focus {
     outline: none;
   }
   
+#entrada{
+    padding-top: 35px;
+    min-height: 70px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
 ion-content {
 
     --background: #FFCE94;
@@ -107,35 +118,6 @@ input::placeholder {
     flex-direction: column;
 }
 
-#input_user{
-    min-height: 60px;
-    margin-top: 5%;
-    margin-left: 12%;
-    margin-right: 12%;
-    background-color: white;
-    color:black;
-    border-radius: 20px;
-    padding-top:3%;
-    padding-bottom: 2%;
-    padding-left: 5%;
-    padding-right: 5%;
-    font-size: 20px;
-}
-
-#input_pass{
-    min-height: 60px;
-    margin-top: 13%;
-    margin-left: 12%;
-    margin-right: 12%;
-    background-color: white;
-    color:black;
-    border-radius: 20px;
-    padding-top:3%;
-    padding-bottom: 2%;
-    padding-left: 5%;
-    padding-right: 5%;
-    font-size: 20px;
-}
 
 #login{
     font-family: jellee;
