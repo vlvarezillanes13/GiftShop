@@ -1,0 +1,51 @@
+<!--<ion-header>
+  <ion-toolbar>
+    <ion-title>login</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content [fullscreen]="true" >
+  <div id="grilla">
+    <div id="contenedor" class="caja">
+        <div id="contenedor_left">
+          <ion-img id="imagen_left" src="../../assets/img/handmade.jpg"></ion-img>
+        </div>
+
+        <div id="contenedor_right">
+
+          <div id="contenedor_up">
+            <ion-img id="imagen_up" src="../../assets/icon/usuario-01.png"></ion-img>
+          </div>
+          <div id="contenedor_down">
+            <form [formGroup]="formularioLogin">
+
+              <div id="entrada">
+                <ion-item>
+                  <ion-input type="email" placeholder="Usuario" formControlName="username"></ion-input>
+                  <div *ngIf="formularioLogin.controls['username'].invalid && formularioLogin.controls['username'].touched" class="is-invalid">
+                  </div> 
+                </ion-item>
+
+              </div>  
+
+              <div id="entrada">
+                <ion-item>
+                  <ion-input type="password" placeholder="Contraseña" formControlName="password"></ion-input>
+                  <div *ngIf="formularioLogin.controls['password'].invalid && formularioLogin.controls['password'].touched" class="is-invalid">
+                  </div>  
+                </ion-item>
+              </div>
+
+            </form>  
+          </div>
+
+        </div>
+    </div>
+
+    <div id="boton" type=button>
+        <ion-button (click)="ingresar()" id="login_click" ><h1 id="login">LOGIN</h1></ion-button>
+    </div>
+
+  </div>
+
+</ion-content>
