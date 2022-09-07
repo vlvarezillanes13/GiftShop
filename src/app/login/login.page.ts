@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { HomeServiceService } from '../services/home-service.service';
 import { Router } from '@angular/router';
+import { IUsuario } from '../interfaces/usuario.interface';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,8 @@ export class LoginPage implements OnInit {
     ],
   });
 
-  public usuario;
+  public usuario: IUsuario;
+  isOpen:boolean = false;
 
   constructor(
     public fb: FormBuilder,
@@ -37,23 +39,27 @@ export class LoginPage implements OnInit {
       )
       .subscribe((resp) => {
         this.usuario = resp;
-
         if (this.usuario) {
           this.router.navigate(['../inicio']);
         } else {
-          this.presentAlert();
+          //this.presentAlert();
+          this.isOpen = true;
         }
       });
   }
 
-  async presentAlert() {
-    const alert = await this.alertController.create({
-      header: 'ERROR',
-      subHeader: 'Credenciales Incorrectas',
-      message: 'Vuelta a intertarlo',
-      buttons: ['OK'],
-    });
+  // async presentAlert() {
+  //   const alert = await this.alertController.create({
+  //     header: 'ERROR',
+  //     subHeader: 'Credenciales Incorrectas',
+  //     message: 'Vuelta a intertarlo',
+  //     buttons: ['OK'],
+  //   });
 
-    await alert.present();
+  //   await alert.present();
+  // }
+
+  closeModel(){
+    this.isOpen = false;
   }
 }
