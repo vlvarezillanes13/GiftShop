@@ -16,22 +16,34 @@
           <div id="contenedor_up">
             <ion-img id="imagen_up" src="../../assets/icon/usuario-01.png"></ion-img>
           </div>
-
           <div id="contenedor_down">
-            <div id="entrada">
-              <ion-input id="" type="text" name="" class="form-control input_user" value="" placeholder="Usuario"></ion-input>
+            <form [formGroup]="formularioLogin">
 
-            </div>  
-            <div id="entrada">
-              <ion-input id="" type="password" name="" class="form-control input_pass" value="" placeholder="Contraseña"></ion-input>
-            </div>
+              <div id="entrada">
+                <ion-item>
+                  <ion-input type="email" placeholder="Usuario" formControlName="username"></ion-input>
+                  <div *ngIf="formularioLogin.controls['username'].invalid && formularioLogin.controls['username'].touched" class="is-invalid">
+                  </div> 
+                </ion-item>
+
+              </div>  
+
+              <div id="entrada">
+                <ion-item>
+                  <ion-input type="password" placeholder="Contraseña" formControlName="password"></ion-input>
+                  <div *ngIf="formularioLogin.controls['password'].invalid && formularioLogin.controls['password'].touched" class="is-invalid">
+                  </div>  
+                </ion-item>
+              </div>
+
+            </form>  
           </div>
 
         </div>
     </div>
 
     <div id="boton" type=button>
-        <button id="login_click"><h1 id="login">LOGIN</h1></button>
+        <ion-button (click)="ingresar()" id="login_click" ><h1 id="login">LOGIN</h1></ion-button>
     </div>
 
   </div>

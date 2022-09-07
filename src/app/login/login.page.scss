@@ -4,33 +4,63 @@
 }
 
 
+ion-item{
+    --background: rgb(219,219,219) !important;
+    border-radius: 10px;
+    min-height: 100%;
+    min-width: 100%;
+
+}
+
+ion-content {
+    --background: #FFCE94;
+}
+
 ion-input{
     --border-radius: 10px !important;
     --padding-right: 10px;
     --font-size: 0.9em;
     --background: rgb(219,219,219) !important;
-    border-radius: 10px;
+    border-radius: 15px;
     min-height: 100%;
     min-width: 100%;
     color:black;
-
 }
-  .no-outline:focus {
+
+ion-button{
+    --background: none;
+    --min-width: 100%;
+    font-family: jellee;
+    font-size: 35px;
+    --border-radius: 20px;
+    --box-shadow: none;
+}
+
+#boton{
+    display: flex;
+    max-height: 100px;
+    max-width: 490px;
+    background-color: #5E2F80;
+    border-radius: 20px;
+    opacity: 0.8;
+    align-items: center;
+    justify-items: center;
+
+    grid-column: 16 / 27;  //controles de la grilla
+    grid-row: 18 / 23;
+}
+.no-outline:focus {
     outline: none;
-  }
+}
   
 #entrada{
-    padding-top: 35px;
-    min-height: 70px;
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-top: 25px;
+    min-height: 80px;
+    padding-left: 35px;
+    padding-right: 35px;
 }
 
-ion-content {
 
-    --background: #FFCE94;
-
-}
 
 //grilla para el overlap
 #grilla{
@@ -46,7 +76,6 @@ input::placeholder {
     font-size: 1.2em;
     font-style: italic;
 }  
-
 
 #contenedor {
     display: flex;
@@ -64,19 +93,6 @@ input::placeholder {
     grid-row: 2 / 25;
 }
 
-#boton{
-    max-height: 100px;
-    max-width: 490px;
-    background-color: #5E2F80;
-    border-radius: 20px;
-
-    opacity: 0.8;
-
-    padding-bottom: 100px;
-
-    grid-column: 16 / 27;  //controles de la grilla
-    grid-row: 19 / 23;
-}
 
 #contenedor_left{
     width: 60%;
@@ -90,8 +106,8 @@ input::placeholder {
 }
 
 #contenedor_right{
-    background: rgb(255,206,148);
-    background: linear-gradient(324deg, rgba(255,206,148,1) 0%, rgba(240,138,57,1) 100%); 
+    background: rgb(253, 222, 182);
+    background: linear-gradient(324deg, rgba(255,206,148,1) 0%, rgb(229, 149, 84) 100%); 
     width: 40%;
     height: 600px;
     max-height: 600px;
@@ -102,10 +118,10 @@ input::placeholder {
 }
 
 #imagen_up{
-    margin-top: 10%;
+    margin-top: 15%;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 10%;
+    margin-bottom: 5%;
     max-width: 60%;
     opacity: 0.5;
 }
@@ -113,9 +129,8 @@ input::placeholder {
 #contenedor_down{
     height: 40%;
     max-height: 40%;
+    padding-top: 0px;
     text-align: center;
-    display: flex; 
-    flex-direction: column;
 }
 
 
@@ -138,17 +153,22 @@ input::placeholder {
 	outline: inherit;
 }
 
-#boton:hover{
-    opacity: 1;
-    z-index: 1;
-}
-
 @media only screen and (max-width: 820px) {
+    ion-button{
+        --background: none;
+        --min-width: 100%;
+        font-family: jellee;
+        font-size: 35px;
+        top:0px;
+        position: absolute;
+        --border-radius: 20px;
+        --box-shadow: none;
+    }
+
     #grilla{
         display:grid;
         padding-left: 10%;
         padding-right: 10%;
-
         align-items: center;
         justify-items: center;
     }
@@ -160,15 +180,14 @@ input::placeholder {
     }
 
     #boton{ 
+        display: flex;
         position: absolute;
         width: 500px;
         max-width: 100%;
-        top:550px;
-    }
-
-    #boton:hover{
-        opacity: 1;
-        z-index: 1;
+        top:480px;
+        align-items: center;
+        justify-items: center;
+        min-height: 90px;
     }
 
     #contenedor_left{
@@ -177,8 +196,8 @@ input::placeholder {
 
     #contenedor_right{
     width: 100%;
-    min-height: 700px;
-    max-height: 700px;
+    min-height: 600px;
+    max-height: 600px;
     }
 
     #input_user{
