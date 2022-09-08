@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { MenuController } from '@ionic/angular';
 
 @Component({
@@ -8,9 +9,13 @@ import { MenuController } from '@ionic/angular';
 })
 export class InicioPage implements OnInit {
 
-  constructor() { }
+  constructor( public router: Router ) { }
 
   ngOnInit() {
+  }
+
+  usuario(){
+    this.router.navigate(['../login']);
   }
 
 }
