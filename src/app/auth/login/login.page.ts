@@ -1,9 +1,9 @@
 import { AlertController } from '@ionic/angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { HomeServiceService } from '../services/home-service.service';
+import { LoginService } from '../../services/auth/login.service';
 import { Router } from '@angular/router';
-import { IUsuario } from '../interfaces/usuario.interface';
+import { IUsuario } from '../../interfaces/usuario.interface';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +12,10 @@ import { IUsuario } from '../interfaces/usuario.interface';
 })
 export class LoginPage implements OnInit {
   formularioLogin: FormGroup = this.fb.group({
-    username: ['', [Validators.required]],
+    username: [
+      '', 
+      [Validators.required,Validators.minLength(5), Validators.maxLength(20)]
+    ],
     password: [
       '',
       [Validators.required, Validators.minLength(5), Validators.maxLength(20)],
@@ -25,14 +28,14 @@ export class LoginPage implements OnInit {
   constructor(
     public fb: FormBuilder,
     public alertController: AlertController,
-    public homeService: HomeServiceService,
+    public loginService: LoginService,
     public router: Router
   ) {}
 
   ngOnInit() {}
 
   ingresar() {
-    this.homeService
+    this.loginService
       .validarCredenciales(
         this.formularioLogin.value.username,
         this.formularioLogin.value.password
@@ -42,22 +45,10 @@ export class LoginPage implements OnInit {
         if (this.usuario) {
           this.router.navigate(['../inicio']);
         } else {
-          //this.presentAlert();
           this.isOpen = true;
         }
       });
   }
-
-  // async presentAlert() {
-  //   const alert = await this.alertController.create({
-  //     header: 'ERROR',
-  //     subHeader: 'Credenciales Incorrectas',
-  //     message: 'Vuelta a intertarlo',
-  //     buttons: ['OK'],
-  //   });
-
-  //   await alert.present();
-  // }
 
   closeModel(){
     this.isOpen = false;

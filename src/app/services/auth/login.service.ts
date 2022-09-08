@@ -1,12 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { IUsuario } from '../interfaces/usuario.interface';
+import { IUsuario } from '../../interfaces/usuario.interface';
 
 @Injectable({
   providedIn: 'root'
 })
-export class HomeServiceService {
+export class LoginService {
 
   private baseUrl: string = 'http://localhost:8081/api/usuario';
 

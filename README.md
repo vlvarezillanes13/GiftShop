@@ -1,4 +1,6 @@
-��#� �G�i�f�t�S�h�o�p�
-�
-�
-Hector Rodriguez  Presente. 
+# Tienda GiftShop
+
+Actualmente cuenta con:
+- Login
+- Validación de Credenciales
+- Menú Principal
