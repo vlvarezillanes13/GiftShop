@@ -1,9 +1,10 @@
-import { AlertController } from '@ionic/angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../../services/auth/login.service';
 import { Router } from '@angular/router';
 import { IUsuario } from '../../interfaces/usuario.interface';
+import { LocalStorageService } from '../../services/localStorage/local-storage.service';
+import { USUARIOLOCALSTORAGE } from 'src/assets/constantes/usuario';
 
 @Component({
   selector: 'app-login',
@@ -26,10 +27,10 @@ export class LoginPage implements OnInit {
   isOpen:boolean = false;
 
   constructor(
-    public fb: FormBuilder,
-    public alertController: AlertController,
-    public loginService: LoginService,
-    public router: Router
+    private fb: FormBuilder,
+    private loginService: LoginService,
+    private router: Router,
+    private localStorageService:LocalStorageService
   ) {}
 
   ngOnInit() {}
@@ -43,6 +44,7 @@ export class LoginPage implements OnInit {
       .subscribe((resp) => {
         this.usuario = resp;
         if (this.usuario) {
+          this.localStorageService.guardarUsuario(USUARIOLOCALSTORAGE,this.usuario);
           this.router.navigate(['../inicio']);
         } else {
           this.isOpen = true;

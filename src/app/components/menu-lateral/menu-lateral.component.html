@@ -1,0 +1,16 @@
+<ion-menu side="start" menuId="first" contentId="main" >
+  <ion-header (click)="cerrarCategorias()">
+    <ion-toolbar color="primary">
+      <ion-title>
+        Categorias
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content color="light">
+    <ion-list >
+      <ion-item *ngFor="let categoria of categorias">
+        {{ categoria.nombre | titlecase}}
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>

@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { MenuController } from '@ionic/angular';
+import { LocalStorageService } from 'src/app/services/localStorage/local-storage.service';
+import { USUARIOLOCALSTORAGE } from 'src/assets/constantes/usuario';
+import { IUsuario } from '../../interfaces/usuario.interface';
 
 @Component({
   selector: 'app-header',
@@ -7,8 +12,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  usuario:IUsuario;
+  openMenu:boolean = false;
 
-  ngOnInit() {}
+  constructor(  private router: Router,
+                private localStorageService:LocalStorageService,
+                private menu: MenuController  ) { }
 
+  ngOnInit() {
+    this.usuario = this.localStorageService.obtenerUsuario( USUARIOLOCALSTORAGE);
+  }
+
+  toLogin(){
+    this.router.navigate(['../login']);
+  }
+
+  abrirCategorias(){
+    this.menu.enable(true, 'first');
+    this.menu.open('first');
+    this.openMenu=true;
+  }
 }
