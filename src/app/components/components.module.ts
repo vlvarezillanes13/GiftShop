@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { HeaderComponent } from './header';
 import { MenuLateralComponent } from './menu-lateral';
+import { ProductosComponent } from './productos/productos.component';
 
 
 
@@ -11,7 +12,8 @@ import { MenuLateralComponent } from './menu-lateral';
 @NgModule({
   declarations: [
     HeaderComponent,
-    MenuLateralComponent
+    MenuLateralComponent,
+    ProductosComponent,
   ],
   imports: [
     CommonModule,
@@ -19,7 +21,8 @@ import { MenuLateralComponent } from './menu-lateral';
   ],
   exports:[
     HeaderComponent,
-    MenuLateralComponent
+    MenuLateralComponent,
+    ProductosComponent,
   ]
 })
 export class ComponentsModule { }

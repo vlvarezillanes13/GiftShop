@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { IProducto } from '../../interfaces/producto.interface';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -14,5 +14,14 @@ export class ProductosService {
   obtenerProductos(){
     const url: string = `${this.baseUrl}/getProductos`;
     return this.http.get<IProducto[]>( url);
+  }
+
+  obtenerProductosPorCategoria(id: string){
+
+    const params = new HttpParams()
+    .append('id', id)
+
+    const url: string = `${this.baseUrl}/getProductosByCategoria`;
+    return this.http.get<IProducto[]>( url , {params});
   }
 }

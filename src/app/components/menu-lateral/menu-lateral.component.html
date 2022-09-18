@@ -8,8 +8,14 @@
   </ion-header>
   <ion-content color="light">
     <ion-list >
-      <ion-item *ngFor="let categoria of categorias">
-        {{ categoria.nombre | titlecase}}
+      <ion-item button
+                (click)="irInicio()">
+        <ion-label>Todos los productos</ion-label>
+      </ion-item>
+      <ion-item *ngFor="let categoria of categorias" 
+                button
+                (click)="buscarPorCategoria(categoria)">
+        <ion-label>{{ categoria.nombre | titlecase}}</ion-label>
       </ion-item>
     </ion-list>
   </ion-content>

@@ -11,9 +11,13 @@ const routes: Routes = [
     loadChildren: () => import('./auth/login/login.module').then( m => m.LoginPageModule)
   },
   {
+    path: 'producto-por-categoria/:id',
+    loadChildren: () => import('./pages/producto-por-categoria/producto-por-categoria.module').then( m => m.ProductoPorCategoriaPageModule)
+  },
+  {
     path: '**',
     redirectTo: 'inicio',
-  },
+  }
 ];
 
 @NgModule({
