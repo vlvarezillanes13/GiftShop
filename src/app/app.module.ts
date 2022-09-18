@@ -22,5 +22,6 @@ import { ComponentsModule } from './components/components.module';
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
+  exports: [],
 })
 export class AppModule {}

@@ -12,7 +12,7 @@ export class ProductosService {
   constructor(  private http: HttpClient ) { }
 
   obtenerProductos(){
-    const url: string = `${this.baseUrl}/getCategorias`;
+    const url: string = `${this.baseUrl}/getProductos`;
     return this.http.get<IProducto[]>( url);
   }
 }

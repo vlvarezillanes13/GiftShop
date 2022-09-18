@@ -5,16 +5,7 @@ import { InicioPage } from './inicio.page';
 const routes: Routes = [
   {
     path:'',
-    children:[
-      {
-        path:'',
-        component: InicioPage
-      },
-      {
-        path:'**',
-        redirectTo:''
-      }
-    ]
+    component:InicioPage
   }
 ];
 

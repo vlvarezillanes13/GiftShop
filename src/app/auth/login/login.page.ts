@@ -12,6 +12,7 @@ import { USUARIOLOCALSTORAGE } from 'src/assets/constantes/usuario';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
+
   formularioLogin: FormGroup = this.fb.group({
     username: [
       '', 
@@ -33,7 +34,9 @@ export class LoginPage implements OnInit {
     private localStorageService:LocalStorageService
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.localStorageService.limpiarInfo();
+  }
 
   ingresar() {
     this.loginService
@@ -45,6 +48,7 @@ export class LoginPage implements OnInit {
         this.usuario = resp;
         if (this.usuario) {
           this.localStorageService.guardarUsuario(USUARIOLOCALSTORAGE,this.usuario);
+          this.formularioLogin.reset()
           this.router.navigate(['../inicio']);
         } else {
           this.isOpen = true;
